@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven - Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        nav a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .book-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .book-list li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .book-list li:last-child {
+            border-bottom: none;
+        }
+        .book-list .title {
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+        .book-list .author {
+            font-size: 1em;
+            color: #7f8c8d;
+        }
+        .book-list .price {
+            font-size: 1.2em;
+            color: #e74c3c;
+        }
+        .book-list a {
+            background-color: #27ae60;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .book-list a:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Cart</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Welcome to Book Haven</h1>
+        <p>Discover your next great read! Browse through our selection of books and find your favorites.</p>
+        <h2>Available Books</h2>
+        <ul class="book-list">
+            {% for book in books %}
+                <li>
+                    <div>
+                        <span class="title">{{ book.title }}</span><br>
+                        <span class="author">by {{ book.author }}</span>
+                    </div>
+                    <div>
+                        <span class="price">${{ book.price }}</span>
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

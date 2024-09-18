@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+</head>
+<body>
+    <h2>Your Shopping Cart</h2>
+    <ul>
+        {% for item in cart_items %}
+            <li>{{ item.book.title }} - {{ item.quantity }} x ${{ item.book.price }} 
+                <a href="{% url 'remove_from_cart' item.id %}">Remove</a>
+            </li>
+        {% empty %}
+            <li>Your cart is empty</li>
+        {% endfor %}
+    </ul>
+    <p>Total: ${{ total_price }}</p>
+    <a href="{% url 'book_list' %}">Continue Shopping</a>
+</body>
+</html>
